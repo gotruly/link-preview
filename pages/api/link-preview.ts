@@ -25,6 +25,18 @@ interface ApiData {
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<ApiData>) => {
+  
+  //////// ADDED
+  // API Key Authentication
+  const { MY_API_KEY } = process.env; // Use the actual name of your environment variable
+  const apiKey = req.headers['x-api-key']; // Assuming the API key is sent in the request headers
+
+  if (!apiKey || apiKey !== MY_API_KEY) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  ////////
+
+
   const params = getLinkPreviewParams(req);
   if (params.errors.length == 0) {
     const { url, stealth, search, validate } = params.data;

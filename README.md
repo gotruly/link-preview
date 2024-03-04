@@ -1,3 +1,13 @@
+## MODIFICATIONS:
+Added auth in `link-preview.ts`
+
+To test locally, create `.env.local` in root with this content:
+```
+MY_API_KEY=the-key
+
+```
+In the request, `http://localhost:3000/api/link-preview?url=URL`, put `x-api-key` into the header.
+
 ## Link Preview
 
 An API for getting near perfect link preview data.
