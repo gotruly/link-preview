@@ -1,4 +1,5 @@
-import { DirectNavigationOptions } from 'puppeteer';
+// import { DirectNavigationOptions } from 'puppeteer'; 
+import DirectNavigationOptions from "puppeteer" // CHANGED
 import puppeteer from 'puppeteer-extra';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 import AdblockerPlugin  from 'puppeteer-extra-plugin-adblocker';
@@ -21,7 +22,8 @@ export interface ScrapeOptions  {
   scrape?: boolean
   stealth?: boolean
   stealthOptions?: {
-    gotoOptions?: DirectNavigationOptions
+    gotoOptions?: any; // CHANGED: Temporarily use any to bypass the type issue
+    // gotoOptions?: DirectNavigationOptions
   }
 }
 

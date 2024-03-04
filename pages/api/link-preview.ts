@@ -32,7 +32,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<ApiData>) => {
   const apiKey = req.headers['x-api-key']; // Assuming the API key is sent in the request headers
 
   if (!apiKey || apiKey !== MY_API_KEY) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    return res.status(401).json({ success: false, error: 'Unauthorized' });
   }
   ////////
 
